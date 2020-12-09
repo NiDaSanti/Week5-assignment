@@ -6,15 +6,27 @@
  //@param {number} number1
  //@param {number} number2
  //@return {number} product
-const multiplication = () => {
-  return
-}
 
-const answer1 = multiplication()
+ let number1 = parseInt(prompt ("Please enter a positive whole number."));
+ let number2 = parseInt(prompt("Please enter a positive whole number"));
+ let total = 0;
+ 
+ const multiplication = (number1, number2) => {
+  for (i= 0; i < number2; i++) {
+    console.log ("iteration counter: " , i)
+    total += number1;
+    console.log("total is: ", total);
+    } 
+   return total;
+  }
+
+const answer1 = multiplication(number1, number2)
 console.log('answer1', answer1)
 
+
+
 const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1
+htmlTarget.innerHTML = answer1 
 
 
 
@@ -25,14 +37,64 @@ htmlTarget.innerHTML = answer1
 
 //@param {string}
 //@return {character} => array of characters
+
+
+let array = [];
+
 vowelOrConsonant = () => {
-  return
+  
+  const userInput = prompt('Please enter a string.');
+  for (let i = 0; i <= userInput.length; i++) {
+    let character = userInput.charAt(i);
+    array = [];
+    array.push(character);
+    console.log('User Input is:', userInput);
+    console.log('character is:', character);
+    console.log('array is:', array);
+  }
+ 
+ //assess each character to determine if v/c and add character to appropriate array 
+ let vowels = [];
+ let consonants = [];
+ let characterToCheck = [];
+    
+   if (characterToCheck == 'a' || 
+       characterToCheck == 'e' || 
+       characterToCheck == 'i' || 
+       characterToCheck == 'o' || 
+       characterToCheck == 'u') {
+         vowels.push(characterToCheck)
+   } else {
+     consonants.push(characterToCheck)
+     console.log('consonants array', consonants);
+     console.log('Our final vowel array is: ', vowels);
+     console.log('Our final consonant array is: ', consonants);
+   }
+  
+
+ 
+    
+//Ask if user wants v/c
+
+let userRequest = prompt ('Type "vowels" if you would like vowels first, or "consonants" to see them first.');
+let reply;
+if (userRequest == 'vowels') {
+   reply = vowels.concat(consonants)
+} else {
+    reply = consonants.concat(vowels)
+}
+ console.log(reply);
 }
 
 const answer2 = vowelOrConsonant()
 
 const htmlTarget2 = document.getElementById('a-2')
-htmlTarget2.innerHTML = answer2
+htmlTarget2.innerHTML = answer2 
+
+
+  
+   
+
 
 
 
@@ -45,14 +107,35 @@ htmlTarget2.innerHTML = answer2
 //where: name, saves the name of the player. Lives, represents the remaining oportunities each time the player fails. Fail_numbers, is an array of numbers that stores the fail numbers the player has used
 
 //@return {string} win / gameOver => the string that says if the user wasted the three oportunities showing the fails numbers or the name if the player wins
-guessTheNumber  = () => {
-  return
-}
+
+let guess; 
+let message;
+const player = {
+  name:'' ,
+  lives:  3,
+  fail_numbers: []
+};
+guessTheNumber  = (upper) => {
+  let randomNumber = guessTheNumber();
+  let user = prompt ('Please enter your name: ')
+  player['name'] = user;
+  return Math.floor(Math.random () * upper) + 40;
+  let attempts = player['lives'];
+do {
+    guess = prompt ('Guess a number between 10 and 50');
+    attempts++;
+   if (parseInt(guess) === randomNumber){
+     message = `Congratulations ${user}! You guessed the correct number: ${randomNumber}`;
+     break;
+   } else {
+       message = `You did not guess the number.  It was: ${randomNumber}`;
+   } 
+} while (attempts > 0);
 
 const answer3 = guessTheNumber()
 
 const htmlTarget3 = document.getElementById('a-3')
-htmlTarget3.innerHTML = answer3
+htmlTarget3.innerHTML = answer3 
 
 
 
@@ -86,4 +169,4 @@ sort = () => {
 const answer4 = sort()
 
 const htmlTarget4 = document.getElementById('a-4')
-htmlTarget4.innerHTML = answer4
+htmlTarget4.innerHTML = answer4 
