@@ -119,7 +119,7 @@ guessTheNumber  = (upper) => {
   let randomNumber = guessTheNumber();
   let user = prompt ('Please enter your name: ')
   player['name'] = user;
-  return Math.floor(Math.random () * upper) + 40;
+  Math.floor(Math.random () * upper) + 40;
   let attempts = player['lives'];
 do {
     guess = prompt ('Guess a number between 10 and 50');
@@ -131,6 +131,8 @@ do {
        message = `You did not guess the number.  It was: ${randomNumber}`;
    } 
 } while (attempts > 0);
+ return;
+}
 
 const answer3 = guessTheNumber()
 
@@ -144,7 +146,7 @@ htmlTarget3.innerHTML = answer3
 // The second one sorting the array of objects based on the author property, the third one based on the library property. finally, the return value has to be the string sorted of the property selected separeted with a semicolon. Remember you have to sort all of the array based on the selected property
 //example: if the user select sorting by title the return value must be: "Mockingjay: The Final Book of The Hunger Games; Walter Isaacson; The Road Ahead"
 
-sort = () => {
+/*sort = () => {
 
   var library = [
    {
@@ -169,4 +171,4 @@ sort = () => {
 const answer4 = sort()
 
 const htmlTarget4 = document.getElementById('a-4')
-htmlTarget4.innerHTML = answer4 
+htmlTarget4.innerHTML = answer4 */
