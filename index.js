@@ -7,7 +7,7 @@
  //@param {number} number2
  //@return {number} product
 
- let number1 = parseInt(prompt ("Please enter a positive whole number."));
+ /*let number1 = parseInt(prompt ("Please enter a positive whole number."));
  let number2 = parseInt(prompt("Please enter a positive whole number"));
  let total = 0;
  
@@ -26,22 +26,18 @@ console.log('answer1', answer1)
 
 
 const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1 
+htmlTarget.innerHTML = answer1 */
 
 
 
 //------------------------ Question 2 ---------------------------
 // Write a function that recieves a string as a parameter and evaluate each character of the string to determinate if the character is vowel or a consonant. you have to store each character on separates arrays, one for vowels and the other one for consonants.
 // after separating the characters concatenate both arrays. ask the user if wants the vowels first or consonants first in the final array.
-//hint:
-
+//hint
 //@param {string}
 //@return {character} => array of characters
 
-
-let array = [];
-
-vowelOrConsonant = () => {
+/*vowelOrConsonant = () => {
   
   const userInput = prompt('Please enter a string.');
   for (let i = 0; i <= userInput.length; i++) {
@@ -70,10 +66,7 @@ vowelOrConsonant = () => {
      console.log('Our final vowel array is: ', vowels);
      console.log('Our final consonant array is: ', consonants);
    }
-  
-
- 
-    
+   
 //Ask if user wants v/c
 
 let userRequest = prompt ('Type "vowels" if you would like vowels first, or "consonants" to see them first.');
@@ -86,10 +79,11 @@ if (userRequest == 'vowels') {
  console.log(reply);
 }
 
+
 const answer2 = vowelOrConsonant()
 
 const htmlTarget2 = document.getElementById('a-2')
-htmlTarget2.innerHTML = answer2 
+htmlTarget2.innerHTML = answer2 */
 
 
   
@@ -108,36 +102,44 @@ htmlTarget2.innerHTML = answer2
 
 //@return {string} win / gameOver => the string that says if the user wasted the three oportunities showing the fails numbers or the name if the player wins
 
-let guess; 
+/*let guess; 
 let message;
-const player = {
-  name:'' ,
-  lives:  3,
-  fail_numbers: []
+let player = {
+  name: '',
+  lives: 3,
+  fail_numbers: [],
 };
+let randomNumber = 0; 
+
 guessTheNumber  = (upper) => {
-  let randomNumber = guessTheNumber();
-  let user = prompt ('Please enter your name: ')
+  randomNumber =  Math.floor(Math.random() * upper) + 40;
+  let user = prompt('Please enter your name: ');
   player['name'] = user;
-  Math.floor(Math.random () * upper) + 40;
+ 
   let attempts = player['lives'];
-do {
-    guess = prompt ('Guess a number between 10 and 50');
-    attempts++;
-   if (parseInt(guess) === randomNumber){
-     message = `Congratulations ${user}! You guessed the correct number: ${randomNumber}`;
-     break;
-   } else {
-       message = `You did not guess the number.  It was: ${randomNumber}`;
-   } 
-} while (attempts > 0);
- return;
+  do {
+    guess = prompt('Guess a number between 10 and 50');
+    attempts -- ;
+    //attempts.push(player['fail_numbers']);
+  } while (attempts > 0);
 }
+    if (parseInt(guess) === randomNumber) {
+      message = `Congratulations ${user}! You guessed the correct number: ${randomNumber}`;
+      
+    } else {
+      message = `You did not guess the number.  It was: ${randomNumber}`;
+    
+    }
+     
+  
+
+
+guessTheNumber();
 
 const answer3 = guessTheNumber()
 
 const htmlTarget3 = document.getElementById('a-3')
-htmlTarget3.innerHTML = answer3 
+htmlTarget3.innerHTML = answer3 */
 
 
 
@@ -146,7 +148,7 @@ htmlTarget3.innerHTML = answer3
 // The second one sorting the array of objects based on the author property, the third one based on the library property. finally, the return value has to be the string sorted of the property selected separeted with a semicolon. Remember you have to sort all of the array based on the selected property
 //example: if the user select sorting by title the return value must be: "Mockingjay: The Final Book of The Hunger Games; Walter Isaacson; The Road Ahead"
 
-/*sort = () => {
+sort = () => {
 
   var library = [
    {
@@ -164,11 +166,25 @@ htmlTarget3.innerHTML = answer3
        author: 'Suzanne Collins',
        libraryID: 3245
    }];
-
+  let answer = prompt('Would you like to sort by title, author or libraryID?');
+  let title = library ['title'];
+  let author = library['author'];
+  let libraryId = library['libraryID'];
+  
+  if (answer === 'title') {
+    let asc = title.sort ((a, b, c) => a.length - b.length - c.length);
+     console.log(asc);
+  }  else if (answer = 'author') {
+    let asc2 = author.sort((a, b, c) => a.lenth - b.length - c.length);
+    console.log(asc2);
+  } else {
+    let asc3 = libraryId.sort((a, b, c) => a.length - b.length - c.length);
+    console.log(asc3)
+  }
   return
 }
 
 const answer4 = sort()
 
 const htmlTarget4 = document.getElementById('a-4')
-htmlTarget4.innerHTML = answer4 */
+htmlTarget4.innerHTML = answer4 
