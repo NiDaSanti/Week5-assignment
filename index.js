@@ -7,7 +7,7 @@
  //@param {number} number2
  //@return {number} product
 
- /*let number1 = parseInt(prompt ("Please enter a positive whole number."));
+ let number1 = parseInt(prompt ("Please enter a positive whole number."));
  let number2 = parseInt(prompt("Please enter a positive whole number"));
  let total = 0;
  
@@ -26,7 +26,7 @@ console.log('answer1', answer1)
 
 
 const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1 */
+htmlTarget.innerHTML = answer1 
 
 
 
@@ -37,7 +37,7 @@ htmlTarget.innerHTML = answer1 */
 //@param {string}
 //@return {character} => array of characters
 
-/*vowelOrConsonant = () => {
+vowelOrConsonant = () => {
   
   const userInput = prompt('Please enter a string.');
   for (let i = 0; i <= userInput.length; i++) {
@@ -83,7 +83,7 @@ if (userRequest == 'vowels') {
 const answer2 = vowelOrConsonant()
 
 const htmlTarget2 = document.getElementById('a-2')
-htmlTarget2.innerHTML = answer2 */
+htmlTarget2.innerHTML = answer2 
 
 
   
@@ -102,7 +102,7 @@ htmlTarget2.innerHTML = answer2 */
 
 //@return {string} win / gameOver => the string that says if the user wasted the three oportunities showing the fails numbers or the name if the player wins
 
-/*let guess; 
+let guess; 
 let message;
 let player = {
   name: '',
@@ -139,7 +139,7 @@ guessTheNumber();
 const answer3 = guessTheNumber()
 
 const htmlTarget3 = document.getElementById('a-3')
-htmlTarget3.innerHTML = answer3 */
+htmlTarget3.innerHTML = answer3 
 
 
 
