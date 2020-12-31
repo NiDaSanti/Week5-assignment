@@ -7,7 +7,7 @@
  //@param {number} number2
  //@return {number} product
 
- let number1 = parseInt(prompt ("Please enter a positive whole number."));
+ /*let number1 = parseInt(prompt ("Please enter a positive whole number."));
  let number2 = parseInt(prompt("Please enter a positive whole number"));
  let total = 0;
  
@@ -26,7 +26,7 @@ console.log('answer1', answer1)
 
 
 const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1 
+htmlTarget.innerHTML = answer1 */
 
 
 
@@ -37,7 +37,7 @@ htmlTarget.innerHTML = answer1
 //@param {string}
 //@return {character} => array of characters
 
-vowelOrConsonant = () => {
+/*vowelOrConsonant = () => {
   
   const userInput = prompt('Please enter a string.');
   let array = [];
@@ -53,10 +53,10 @@ vowelOrConsonant = () => {
  //assess each character to determine if v/c and add character to appropriate array 
  let vowels = [];
  let consonants = [];
- let letterToCheck = [];
+
     
-   for (i=0; i <= letterToCheck.length; i++) {
-     //let letterToCheck = array[i]
+   for (i=0; i <= userInput.length; i++) {
+    let letterToCheck = array[i]
    if (letterToCheck == 'a' || 
        letterToCheck == 'e' || 
        letterToCheck == 'i' || 
@@ -90,7 +90,7 @@ if (userRequest == 'vowels') {
 const answer2 = vowelOrConsonant()
 
 const htmlTarget2 = document.getElementById('a-2')
-htmlTarget2.innerHTML = answer2 
+htmlTarget2.innerHTML = answer2 */
 
 
   
@@ -109,7 +109,7 @@ htmlTarget2.innerHTML = answer2
 
 //@return {string} win / gameOver => the string that says if the user wasted the three oportunities showing the fails numbers or the name if the player wins
 
-/*let guess; 
+let guess; 
 let message;
 let player = {
   name: '',
@@ -117,35 +117,35 @@ let player = {
   fail_numbers: [],
 };
 let randomNumber = 0; 
-
-guessTheNumber  = (upper) => {
-  randomNumber =  Math.floor(Math.random() * upper) + 40;
-  let user = prompt('Please enter your name: ');
+randomNumber =  Math.floor(Math.random() * 41) + 10;
+player.name=  prompt('Please enter your name: ');
  
-  let attempts = player['lives'];
-  
-    guess = prompt('Guess a number between 10 and 50');
-    for (let i = 0; i <= attempts; i--) {
-    //attempts.push(player['fail_numbers']);
-    if (parseInt(guess) === randomNumber) {
-      message = `Congratulations ${user}! You guessed the correct number: ${randomNumber}`;
-      
-    } else {
-      message = `You did not guess the number.  It was: ${randomNumber}`;
+guessTheNumber  = () => {
+   //let attempts = player['lives'];
+  console.log(randomNumber)
     
+     if (player.lives <= 3 && player.lives > 0) {
+        guess = prompt('Guess a number between 10 and 50');
+        if (parseInt(guess) === randomNumber) {
+          alert ( `Congratulations ${player.name}! You guessed the correct number: ${randomNumber}`);
+          
+        } else {
+        player.lives--;
+        player.fail_numbers.push(guess);
+        alert (`You did not guess the number.  You have: ${player.lives} attempts left to guess the number.`);
+        guessTheNumber();
+      }
+    
+     // else {
+       // alert("You didn't guess the number. You are out of lives.")
     }
-  }
+    return `${player.name} guessed these numbers ${player.fail_numbers}.  The correct number was ${randomNumber}.`;
 }
-     
-  
-
-
-guessTheNumber();
 
 const answer3 = guessTheNumber()
 
 const htmlTarget3 = document.getElementById('a-3')
-htmlTarget3.innerHTML = answer3 */
+htmlTarget3.innerHTML = answer3 
 
 
 
