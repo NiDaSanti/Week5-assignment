@@ -7,7 +7,7 @@
  //@param {number} number2
  //@return {number} product
 
- let number1 = parseInt(prompt ("Please enter a positive whole number."));
+ /*let number1 = parseInt(prompt ("Please enter a positive whole number."));
  let number2 = parseInt(prompt("Please enter a positive whole number"));
  let total = 0;
  
@@ -26,7 +26,7 @@ console.log('answer1', answer1)
 
 
 const htmlTarget = document.getElementById('a-1')
-htmlTarget.innerHTML = answer1 
+htmlTarget.innerHTML = answer1 */
 
 
 
@@ -37,12 +37,13 @@ htmlTarget.innerHTML = answer1
 //@param {string}
 //@return {character} => array of characters
 
-vowelOrConsonant = () => {
+/*vowelOrConsonant = () => {
   
   const userInput = prompt('Please enter a string.');
+  let array = [];
+
   for (let i = 0; i <= userInput.length; i++) {
     let character = userInput.charAt(i);
-    array = [];
     array.push(character);
     console.log('User Input is:', userInput);
     console.log('character is:', character);
@@ -52,20 +53,24 @@ vowelOrConsonant = () => {
  //assess each character to determine if v/c and add character to appropriate array 
  let vowels = [];
  let consonants = [];
- let characterToCheck = [];
+
     
-   if (characterToCheck == 'a' || 
-       characterToCheck == 'e' || 
-       characterToCheck == 'i' || 
-       characterToCheck == 'o' || 
-       characterToCheck == 'u') {
-         vowels.push(characterToCheck)
+   for (i=0; i <= userInput.length; i++) {
+    let letterToCheck = array[i]
+   if (letterToCheck == 'a' || 
+       letterToCheck == 'e' || 
+       letterToCheck == 'i' || 
+       letterToCheck == 'o' || 
+       letterToCheck == 'u') {
+         vowels.push(letterToCheck);
+         console.log("vowel array:", vowels)
    } else {
-     consonants.push(characterToCheck)
-     console.log('consonants array', consonants);
+     consonants.push(letterToCheck)
+     console.log('consonants array', consonants)
      console.log('Our final vowel array is: ', vowels);
      console.log('Our final consonant array is: ', consonants);
    }
+  } 
    
 //Ask if user wants v/c
 
@@ -76,14 +81,16 @@ if (userRequest == 'vowels') {
 } else {
     reply = consonants.concat(vowels)
 }
- console.log(reply);
+ return reply;
 }
+
+
 
 
 const answer2 = vowelOrConsonant()
 
 const htmlTarget2 = document.getElementById('a-2')
-htmlTarget2.innerHTML = answer2 
+htmlTarget2.innerHTML = answer2 */
 
 
   
@@ -110,31 +117,30 @@ let player = {
   fail_numbers: [],
 };
 let randomNumber = 0; 
-
-guessTheNumber  = (upper) => {
-  randomNumber =  Math.floor(Math.random() * upper) + 40;
-  let user = prompt('Please enter your name: ');
-  player['name'] = user;
+randomNumber =  Math.floor(Math.random() * 41) + 10;
+player.name=  prompt('Please enter your name: ');
  
-  let attempts = player['lives'];
-  do {
-    guess = prompt('Guess a number between 10 and 50');
-    attempts -- ;
-    //attempts.push(player['fail_numbers']);
-  } while (attempts > 0);
-}
-    if (parseInt(guess) === randomNumber) {
-      message = `Congratulations ${user}! You guessed the correct number: ${randomNumber}`;
-      
-    } else {
-      message = `You did not guess the number.  It was: ${randomNumber}`;
+guessTheNumber  = () => {
+   //let attempts = player['lives'];
+  console.log(randomNumber)
     
+     if (player.lives <= 3 && player.lives > 0) {
+        guess = prompt('Guess a number between 10 and 50');
+        if (parseInt(guess) === randomNumber) {
+          alert ( `Congratulations ${player.name}! You guessed the correct number: ${randomNumber}`);
+          
+        } else {
+        player.lives--;
+        player.fail_numbers.push(guess);
+        alert (`You did not guess the number.  You have: ${player.lives} attempts left to guess the number.`);
+        guessTheNumber();
+      }
+    
+     // else {
+       // alert("You didn't guess the number. You are out of lives.")
     }
-     
-  
-
-
-guessTheNumber();
+    return `${player.name} guessed these numbers ${player.fail_numbers}.  The correct number was ${randomNumber}.`;
+}
 
 const answer3 = guessTheNumber()
 
@@ -150,7 +156,7 @@ htmlTarget3.innerHTML = answer3
 
 sort = () => {
 
-  var library = [
+  const library = [
    {
        title:  'The Road Ahead',
        author: 'Bill Gates',
@@ -166,22 +172,36 @@ sort = () => {
        author: 'Suzanne Collins',
        libraryID: 3245
    }];
-  let answer = prompt('Would you like to sort by title, author or libraryID?');
-  let title = library ['title'];
-  let author = library['author'];
-  let libraryId = library['libraryID'];
+  let usersAnswer = prompt('Would you like to sort the library by title, author or libraryID?');
+  let sortedArray = [];
+  let item = '';
   
-  if (answer === 'title') {
-    let asc = title.sort ((a, b, c) => a.length - b.length - c.length);
-     console.log(asc);
-  }  else if (answer = 'author') {
-    let asc2 = author.sort((a, b, c) => a.lenth - b.length - c.length);
-    console.log(asc2);
-  } else {
-    let asc3 = libraryId.sort((a, b, c) => a.length - b.length - c.length);
-    console.log(asc3)
+  for (i=0; i < library.length; i++) {
+      if (usersAnswer == "title") {
+     item = library[i].title;
+      sortedArray.push(item);
+   } else if (usersAnswer == "author") {
+     item = library[i].author;
+     sortedArray.push(item);
+   } else if (usersAnswer == "id"){
+     item = library[i].libraryID;
+     sortedArray.push(item);
+   } else {
+     alert ("Your entry was invalid. Please enter 'title', 'author' or 'id'.")
+   }
+  
+    
   }
-  return
+
+  if(typeof sortedArray[0] == "string") {
+   sortedArray.sort(function(a, b){
+     return b.length - a.length;
+   })
+  } else {
+     sortedArray.sort()
+     sortedArray.reverse()
+  }  
+  return sortedArray
 }
 
 const answer4 = sort()
